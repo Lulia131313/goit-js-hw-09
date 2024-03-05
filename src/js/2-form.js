@@ -9,8 +9,8 @@ form.addEventListener('submit', e => {
   if (!email.value.trim() || !message.value.trim())
     return alert('You need to enter email and message!');
   const userData = {
-    email: email.value,
-    message: message.value,
+    email: email.value.trim(),
+    message: message.value.trim(),
   };
   console.log(userData);
 
@@ -30,9 +30,7 @@ function onFormInput(e) {
     message: message.value.trim(),
   };
 
-  email.value.trim() || message.value.trim()
-    ? addDataToLocalStorage(KEY, user)
-    : removeDataFromLocalStorage(KEY);
+  addDataToLocalStorage(KEY, user);
 }
 
 function addDataToLocalStorage(key, value) {
@@ -67,4 +65,3 @@ function render() {
   form.elements.email.value = data?.email || '';
   form.elements.message.value = data?.message || '';
 }
-
